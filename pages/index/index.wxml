@@ -1,0 +1,30 @@
+<!--index.wxml-->
+<view class="container">
+  <scroll-view class="data-info">
+    <view class="head">
+      <text class="title">尊敬的上海联通粉丝</text>
+      <view class="card"></view>
+      <view class="buttons">
+        <view class="button">缴费记录</view>
+        <view class="split"></view>
+        <view class="button">电子对账单</view>
+      </view>
+    </view>
+    <view class="detail">
+      <view class="detail-title">
+        <view></view>
+        <text>{{name}}</text>
+        <view></view>
+      </view>
+      <view class="detail-content">
+        <view class="flow">
+          <icon></icon>
+          <text>流量</text>
+          <icon></icon>
+        </view>
+        <view class="call"></view>
+      </view>
+    </view>
+  </scroll-view>
+  <text class="tip">以上信息仅供参考，详情以每月出账为准</text>
+</view>
