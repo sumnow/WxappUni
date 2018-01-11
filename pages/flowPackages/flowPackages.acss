@@ -1,0 +1,243 @@
+/* pages/flowPackages/flowPackages.wxss */
+page {
+  background-color: #E7E7E7;
+  letter-spacing: 0;
+  color: #666666;
+  font-family: PingFangSC-Regular;
+  position: relative;
+}
+/* 顶部tab栏  */
+.tab {
+  height: 90rpx;
+  width: 100%;
+  background-color: white;
+}
+.tab .flow-name {
+  display: inline-block;
+  width: 50%;
+  height: 100%;
+  text-align: center;
+}
+.tab .flow-name text{
+  display: inline-block;
+  height: 100%;
+  font-family: PingFangSC-Medium;
+  font-size: 30rpx;
+  color: #333;
+  line-height: 90rpx; 
+  border-bottom: 6rpx solid white;
+  box-sizing: border-box;
+}
+/* 点击tab栏时增加的类样式 */
+#tab-click{
+  color: #F93F42;
+  border-bottom: 6rpx solid #F93F42;
+}
+.middle{
+  padding:30rpx;
+}
+.middle .title{
+  font-size: 26rpx;
+  line-height: 26rpx;
+  margin-bottom: 20rpx;
+  margin-top: 14rpx;
+}
+.middle .special-title{
+  margin-top: 0;
+}
+/* 包月包 */
+.middle .suggest-content .video-option{
+  height: 320rpx;
+  overflow: hidden;
+}
+.common{
+  display: inline-block; 
+  width: 32%; 
+  font-family: PingFangSC-Medium;
+  font-size: 30rpx;
+  text-align: center;
+  background-color: white;
+  border-radius: 20rpx;
+  box-sizing: border-box;
+  position: relative;
+}
+.common:nth-child(3n-1){
+  margin-left: 2%;
+  margin-right: 2%;
+}
+.middle .suggest-content .video-option .video-logo{
+  display: inline-block;
+  height: 130rpx;
+  width: 130rpx;
+  margin-top: 30rpx;
+} 
+.middle .suggest-content .video-option .video-name {
+  display: inline-block; 
+  height: 72rpx;
+  width: 156rpx;
+  font-family: PingFangSC-Light;
+  font-size: 26rpx;
+  color: #333333;
+  line-height: 36rpx; 
+  text-align: center;
+} 
+.middle .suggest-content .video-option .video-price {
+  display: inline-block;
+  height: 26rpx;
+  width: 100%;
+  font-size: 26rpx;
+  color: #AAAAAA;
+  line-height: 26rpx;
+}
+.middle .more-suggest{
+  font-size: 30rpx;
+  color: #F93F42;
+  letter-spacing: 0.4rpx;
+  line-height: 30rpx;
+  text-align: center;
+  margin-bottom: 40rpx;
+}
+.special-packages{
+  margin-top: 44rpx;
+}
+.triangle{
+  display: inline-block;
+  height: 22rpx;
+  width: 18rpx;
+  margin-left: 10rpx;
+}
+.flow-type .flow-choose{
+  height: 90rpx;
+  line-height: 90rpx;
+  background-color: white; 
+  margin-bottom: 16rpx;
+  position: relative;
+}
+.flow-type .flow-option{
+  height: 140rpx;
+  margin-bottom: 16rpx;
+  position: relative;
+}
+/* 获赠电子券 */
+.ticket{
+  display: inline-block;
+  height: 40rpx;
+  width: 40rpx;
+  font-size: 24rpx;
+  color: #FFF;
+  line-height: 40rpx;
+  background-color: #AAAAAA;
+  border-radius: 20rpx 0 20rpx 0;
+  position: absolute;
+  top: 0;
+  left: 0; 
+}
+/* 选中框勾选时的角标样式 */
+.img{
+  display: inline-block;
+  height: 50rpx;
+  width:50rpx;
+  position: absolute;
+  right: 0;
+  bottom:0;
+}
+/* 选中框勾选时的文字内容样式 */
+.selected-font{
+  color: #F93F42;
+}
+/* 选中框勾选时获赠电子券样式 */
+.selected-ticket{
+  background-color: #F93F42;
+}
+.flow-size{
+  display: inline-block; 
+  width: 100%;
+  height: 40rpx;
+  font-size: 40rpx;
+  line-height: 40rpx;
+  margin-top: 30rpx; 
+  margin-bottom: 0rpx;
+}
+.flow-price{
+  display: inline-block; 
+  width: 100%;
+  height: 24rpx;
+  font-size: 24rpx;
+  line-height: 24rpx;
+}
+/* 确认订购遮罩层 */
+.mask{
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+  background: #39383B;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.confirm{
+  /* height: 700rpx; */
+  height: 0;
+  width: 100%;
+  overflow: hidden;
+  background-color: white;
+  position: absolute;
+  bottom:0;
+  left:0;
+}
+.confirm .title{
+  padding: 20rpx 30rpx;
+  box-sizing: border-box;
+  border-bottom: 1px solid  #DDDDDD;
+  text-align: center;
+  position: relative;
+}
+.confirm .title > view {
+  display: inline-block;
+  height: 92rpx;
+  position: absolute;
+  top:0;
+  left:0rpx;
+  padding: 20rpx 30rpx 0;
+  box-sizing: border-box;
+}
+.confirm .title image{
+  display: inline-block;
+  height: 32rpx;
+  width: 32rpx;
+}
+.confirm .title text{
+  font-size: 40rpx;
+  color: #333333;
+  line-height: 40rpx;
+}
+.confirm .content{
+  text-align: center;
+  padding: 40rpx 80rpx 0;
+}
+.confirm .content .flow-num{
+  margin-bottom: 30rpx;
+  font-size: 96rpx;
+  color: #151515;
+  line-height: 96rpx;
+}
+.confirm .content .alert{
+  font-size: 36rpx;
+  color: #333333;
+  line-height:50rpx;
+}
+.confirm .content .phoneNum{
+  font-weight: 700;
+}
+.confirm .content .instruction{
+  font-size: 32rpx;
+  color: #F93F42;
+  line-height: 32rpx;
+  margin: 40rpx 0 60rpx;
+}
+.confirm .content button{
+  background: #F93F42;
+  border-radius: 200rpx;
+  font-size: 36rpx;
+  color: white;
+}

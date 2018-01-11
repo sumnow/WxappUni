@@ -1,0 +1,117 @@
+<!--pages/flowPackages/flowPackages.wxml-->
+<view class="container" style="overflow:{{maskDisplay=='block'?'hidden':''}}">
+  <!-- 顶部tab栏 -->
+  <view class="tab">
+    <block a:for="{{tabName}}" a:key="tabName" a:for-item="tabName" a:for-index="tabIndex">
+      <view id="{{tabIndex}}" class="flow-name" onTap='switchTab'>
+        <block a:if="{{tabIndex == tabId}}">
+          <text id="tab-click">{{tabName}}</text>
+        </block>
+        <block a:else>
+          <text>{{tabName}}</text>
+        </block>
+      </view>
+    </block>
+  </view>
+  <!-- 选择流量包月类型 -->
+  <block a:if="{{tabId == 0}}">
+    <view class="middle">
+      <view class="title special-title">选择流量包月类型</view>
+      <view class="flow-type">
+        <block a:for="{{flowMonthType}}" a:key="flowMonthType" a:for-item="flowMonthType" a:for-index="flowMonthTypeIndex">
+          <view id="{{flowMonthTypeIndex}}" class="flow-choose common {{selectedFlowMonthTypeId == flowMonthTypeIndex?'selected-font':''}}" onTap="selectedMonthFlowType">
+            <text>{{flowMonthType.option}}</text>
+            <block a:if="{{selectedFlowMonthTypeId == flowMonthTypeIndex}}">
+              <image class="img" src="{{icons.selected}}"></image>
+            </block>
+          </view>
+        </block>
+      </view>
+      <view class="title">{{flowMonthOptionTitle}}</view>
+      <!-- 选择流量包 -->
+      <view class="flow-type">
+        <block a:for="{{flowMonthOption}}" a:key="flowMonthOption" a:for-item="flowMonthOption" a:for-index="flowMonthOptionIndex">
+          <view id="{{flowMonthOptionIndex}}" class="flow-option common {{selectedPackagesId == flowMonthOptionIndex?'selected-font':''}}" onTap="FlowPackages">
+            <view a:if="{{flowMonthOptionIndex > 5}}" class="ticket {{selectedPackagesId == flowMonthOptionIndex?'selected-ticket':''}}">券</view>
+            <text class='flow-size'>{{flowMonthOption.size}}</text>
+            <text class='flow-price'>{{flowMonthOption.price}}</text>
+            <block a:if="{{selectedPackagesId == flowMonthOptionIndex}}">
+              <image class="img" src="{{icons.selected}}"></image>
+            </block>
+          </view>
+        </block>
+      </view>
+      <!-- 推荐视频包订购 -->
+      <view class="title">根据您的使用情况为您推荐</view>
+      <view class="suggest-content">
+        <block a:for="{{list}}" a:key="list" a:for-item="list" a:for-index="listIndex">
+          <view id="{{listIndex}}" class="video-option common" onTap="{{listIndex==2?'navigatorToVideoPackages':'navigateToVideoPackageDetail'}}">
+            <image class="video-logo" src="{{list.logo}}"></image> 
+            <view class="video-name">{{list.name}}</view>
+            <view class="video-price">{{list.price}}</view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </block>
+
+  <!-- 加餐包 -->
+  <block a:elif="{{tabId == 1}}">
+    <view class="middle">
+      <view class="title special-title">选择流量包类型</view>
+      <view class="flow-type">
+        <block a:for="{{flowPlusType}}" a:key="flowPlusType" a:for-item="flowPlusType" a:for-index="flowPlusTypeIndex">
+          <view id="{{flowPlusTypeIndex}}" class="flow-choose common {{selectedFlowPlusTypeId == flowPlusTypeIndex?'selected-font':''}}" onTap="selectedFlowPlusType"
+            style="height:140rpx;line-height:40rpx;padding-top:30rpx;margin-bottom:16rpx;">
+            <text>{{flowPlusType.option}}</text>
+            <block a:if="{{selectedFlowPlusTypeId == flowPlusTypeIndex}}">
+              <image class="img" src="{{icons.selected}}"></image>
+            </block>
+          </view>
+        </block>
+      </view>
+      <view class="title">{{flowPlusOptionTitle}}</view>
+      <!-- 选择流量包 -->
+      <view class="flow-type">
+        <block a:for="{{flowPlusOption}}" a:key="flowPlusOption" a:for-item="flowPlusOption" a:for-index="flowPlusOptionIndex">
+          <view id="{{flowPlusOptionIndex}}" class="flow-option common {{selectedPackagesId == flowPlusOptionIndex?'selected-font':''}}" onTap="FlowPackages"
+            style="height:140rpx; padding-top: 0rpx;">
+            <text class="flow-size">{{flowPlusOption.size}}</text>
+            <text class="flow-price">{{flowPlusOption.price}}</text>
+            <block a:if="{{selectedPackagesId == flowPlusOptionIndex}}">
+              <image class="img" src="{{icons.selected}}"></image>
+            </block>
+          </view>
+        </block>
+      </view> 
+
+
+      <view class="more-suggest special-packages" onTap="navigatorToVideoPackages">
+        <text>特色业务包</text>
+        <image class="triangle" src="{{icons.rightArrow}}"></image>
+      </view>
+    </view>
+  </block>
+  <!-- 订购确认遮罩层 -->
+  <view class="mask" style="display:{{maskDisplay}}" onTap="cancelSubscribe"></view>
+  <view class="confirm" animation="{{animation}}">
+    <view class="title">
+      <view onTap="cancelSubscribe">
+        <image src="{{icons.cancel}}"></image>
+      </view>
+      <text>流量充值</text>
+    </view>
+    <view class="content">
+      <view class="flow-num">{{size}}</view>
+      <view class="alert">您确定为绑定的手机号</view>
+      <view class="alert phoneNum">{{phoneNum}}</view>
+      <view class="alert">{{price}}</view>
+      <view class="instruction more-suggest" onTap="navigatorToSubscribeInstruction">
+        <text>订购说明</text>
+        <image class="triangle" src="{{icons.rightArrow}}"></image>
+      </view>
+      <button onTap="confirmSubscribe">确定</button>
+    </view>
+  </view>
+</view>
+

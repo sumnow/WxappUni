@@ -1,0 +1,119 @@
+<!--pages/chargeRecords/chargeRecords.wxml-->
+<view class="container">
+  <text class="title">温馨提示：只可查询近6个月缴费记录</text>
+
+  <!-- 日期选择 -->
+  <view class="date-picker">
+    <view class="date-header">
+      <block a:for="{{years}}" a:key="{{index}}">
+        <view class="year">
+          <text id="{{item}}" onTap="selectYear" class="{{item == selectYear ? 'year-select' : 'year-unselect'}}">{{item}}</text>
+        </view>
+      </block>
+    </view>
+    <view class="data-wrap">
+      <view class="date-ul" animation="{{animationData2}}">
+        <block a:for="{{availMonth}}" a:key="{{index}}" a:for-index="idx">
+          <view class="date" id="{{idx}}">
+            <div class="name">
+              <block a:for="{{selectYear == currentYear ? availMonth[availMonthL] : availMonth[0]}}" a:key="{{index}}">
+                <view  class="month {{item.el?'as':'se'}}" id="{{item.month}}">
+                  <button id="{{item.year + item.month}}" onTap="selectMonth" class="{{item.sel ? 'month-select' : 'month-unselect'}}" disabled="{{!item.num}}">{{item.month}}</button>
+                  <view class="" class="dot {{ !item.hasData ? 'hidden' : ''}}"></view>
+                </view>
+              </block>
+            </div>
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 缴费记录 -->
+  <!-- <view onTouchStart="handletouchstart" onTouchEnd="handletouchend" class="wrapper {{length >= 3 ? 'special-wrapper' : ''}}" animation="{{animationData2}}">
+    <view class="wrap" >
+      <view class="section">
+        <text>{{currentYear}}年{{currentMonth}}月</text>
+        <view class="bill-num-total">
+          <text class='unit'>¥</text>
+          <text class='num'>{{numTotal}}</text>
+        </view>
+        <view a:if="{{length != 0}}">
+          <view class="num-wrap" a:for="{{billInfo.info}}" a:key="billInfo.info" a:for-index="billInfoIndex" a:for-item="items">
+            <view class="count-wrap">
+              <view class="count">{{billInfoIndex+1}}</view>
+            </view>
+            <view class="time">{{items.time}}</view>
+            <view class="bill-num">
+              <text class='unit'>¥</text>
+              <text class='num'>{{items.num}}</text>
+            </view>
+          </view>
+        </view>
+        <view a:else>
+          <view class="prompt">尊敬的上海联通粉丝</view>
+          <view class="none">本月您还没有缴费记录哦</view> 
+        </view>
+        <view class="circular">
+          <image class="img" src="{{icons.circular}}"></image> 
+        </view>
+      </view>
+    </view>
+    <view class="wrap" >
+      <view class="section">
+        <text>{{billInfo.year}}年{{billInfo.month}}月</text>
+        <view class="bill-num-total">
+          <text class='unit'>¥</text>
+          <text class='num'>{{numTotal}}</text>
+        </view>
+        <view a:if="{{length != 0}}">
+          <view class="num-wrap" a:for="{{billInfo.info}}" a:key="billInfo.info" a:for-index="billInfoIndex" a:for-item="items">
+            <view class="count-wrap">
+              <view class="count">{{billInfoIndex+1}}</view>
+            </view>
+            <view class="time">{{items.time}}</view>
+            <view class="bill-num">
+              <text class='unit'>¥</text>
+              <text class='num'>{{items.num}}</text>
+            </view>
+          </view>
+        </view>
+        <view a:else>
+          <view class="prompt">尊敬的上海联通粉丝</view>
+          <view class="none">本月您还没有缴费记录哦</view> 
+        </view>
+        <view class="circular">
+          <image class="img" src="{{icons.circular}}"></image> 
+        </view>
+      </view>
+    </view>
+    <view class="wrap" >
+      <view class="section">
+        <text>{{currentYear}}年{{currentMonth}}月</text>
+        <view class="bill-num-total">
+          <text class='unit'>¥</text>
+          <text class='num'>{{numTotal}}</text>
+        </view>
+        <view a:if="{{length != 0}}">
+          <view class="num-wrap" a:for="{{billInfo.info}}" a:key="billInfo.info" a:for-index="billInfoIndex" a:for-item="items">
+            <view class="count-wrap">
+              <view class="count">{{billInfoIndex+1}}</view>
+            </view>
+            <view class="time">{{items.time}}</view>
+            <view class="bill-num">
+              <text class='unit'>¥</text>
+              <text class='num'>{{items.num}}</text>
+            </view>
+          </view>
+        </view>
+        <view a:else>
+          <view class="prompt">尊敬的上海联通粉丝</view>
+          <view class="none">本月您还没有缴费记录哦</view> 
+        </view>
+        <view class="circular">
+          <image class="img" src="{{icons.circular}}"></image> 
+        </view>
+      </view>
+    </view>
+  </view> -->
+</view>

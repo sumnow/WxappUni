@@ -1,0 +1,104 @@
+/* pages/videoPackageDetail/videoPackageDetail.wxss */
+
+page{
+  background-color: #E7E7E7;
+  padding: 30rpx;
+  box-sizing: border-box; 
+  letter-spacing: 0; 
+  font-family: PingFangSC-Thin;
+}
+.top{
+  width: 100%;
+  background: #333;
+  height: 40%;
+  text-align: right;
+  border-radius: 20rpx 20rpx 0rpx 0rpx;
+  position: relative;
+  overflow: hidden;
+}
+.top .logo{
+  display: inline-block;
+  width: 420rpx;
+  height: 420rpx;
+  position: absolute;
+  top: -50rpx;
+  right: -40rpx;
+}
+.top .product-name{
+  height: 268rpx;
+  width: 360rpx; 
+  text-align: left;
+  color: #FFF;
+  position: absolute;
+  top: 165rpx; 
+  left: 50rpx;
+  z-index: 2;
+}
+.top .product-name .product-title{
+  font-size: 90rpx;
+  line-height: 90rpx;
+  margin-bottom: 10rpx;
+  font-weight: lighter;
+}
+.top .product-name .more-title{
+  font-size: 48rpx;
+  line-height: 48rpx;
+  margin-bottom: 40rpx;
+} 
+.top .product-name .btn{
+  display: inline-block;
+  height: 60rpx;
+  line-height: 60rpx;
+  width: 200rpx;
+  background: #333;
+  border: 1px solid #FFF;
+  border-radius: 30rpx;
+  text-align: center;
+}
+
+/* 资费说明 */
+.title{
+  height: 7%; 
+  background-color:#fff;
+  padding: 3.5% 75rpx;
+  font-size: 28rpx;
+  color: #666;
+  box-sizing: border-box;
+}
+.content {
+  height: 40%; 
+  background:#fff;
+  box-sizing: border-box;
+  padding:0rpx 75rpx;
+  font-size: 26rpx;
+  color: #AAA;
+  line-height: 42rpx;
+}
+
+/* 底部按钮 */
+.bottom{
+  background-color: #fff;
+  height: 13%;
+  box-sizing: border-box;  
+  border-radius:0rpx 0rpx 20rpx 20rpx;
+  position: relative;
+}
+button{
+  background: #F93F42; 
+  border-radius:90rpx;
+  height: 90rpx; 
+  width: 75%;
+  line-height: 90rpx; 
+  font-size: 40rpx;
+  font-weight: 700;
+  text-align: center;
+  color: #FFF;
+  letter-spacing: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.button-none,button::after{
+  border: none;
+}

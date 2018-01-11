@@ -1,0 +1,11 @@
+<!--pages/subscribeInstruction/subscribeInstruction.wxml-->
+<view class="container">
+  <view class="title" style="display:{{introduce?'block':'none'}}">业务介绍</view>
+  <view class="content" style="display:{{introduce?'block':'none'}}">
+    <text>{{introduce}}</text>
+  </view>
+  <view class="title">温馨提示</view>
+  <view class="content">
+    <text>{{reminder}}</text>
+  </view>
+</view>

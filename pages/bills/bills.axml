@@ -1,0 +1,93 @@
+<!--pages/bills/bills.wxml-->
+
+<view class="container">
+  <!-- 基本信息 -->
+  <view class="bill-info">账单详情</view>
+  <view class="basic-info red">
+    <view class="basic-info-title">基本信息</view>
+    <view class="user-info">
+      <text class="user-phone">{{userInfo.phoneNum}}</text>
+      <text class="user-name">{{userInfo.name}}</text>
+    </view>
+    <view class="account-num">
+      <text>账户编号：</text>
+      <text>{{userInfo.accountNum}}</text>
+    </view>
+    <view class="email">
+      <text>邮箱：</text>
+      <input value="{{userInfo.email}}" onBlur="loseBlur" focus="{{focus}}" placeholder="请输入邮箱账号" placeholder-class="placeholder" confirm-type="done"></input> 
+      <image onTap="updateEamil" src="{{icons.conserve}}"></image>
+    </view>
+  </view>
+  <!-- 账单信息 -->
+  <view class="bill-date">
+    <picker mode="date" value="{{date}}" start="{{dataStart}}" end="{{dataEnd}}" fields="month" onChange="billChoose">
+      <text>{{date}}</text>
+      <image class="triangle" src="{{icons.rightArrow}}"></image>
+    </picker>
+  </view>
+  <view class="basic-info blue">
+    <view class="basic-info-title">账单信息</view>
+    <view class="user-info">
+      <text class="user-phone" id="font">账单费用</text>
+      <text class="user-name">{{bill.billCost}}</text>
+    </view>
+    <view class="account-num">
+      <text>结算日期：</text>
+      <text>{{bill.balanceDate}}</text>
+    </view>
+    <view class="email">
+      <text>开账日期：</text>
+      <text>{{bill.openDate}}</text>
+    </view>
+  </view>
+  <!-- 补发、退订账单 -->
+  <view class="reissue-unsubscribe">
+    <text onTap="reissueBill">补发账单</text>
+    <text onTap="unsubscribeBill">退订账单</text>
+  </view>
+  <!-- 您的账单明细 -->
+  <view class="basic-info green">
+    <view class="basic-info-title">您的账单明细</view>
+    <view>
+      <view class="section" a:for="{{bill.billDetails}}" a:key="bill.billDetails" a:for-item="billDetails">
+        <view class="section-title">
+          <text class="left">{{billDetails.sectionLeft}}</text>
+          <text class="right">
+            <text style="color:#F93F42">{{billDetails.sectionRight}}</text>
+            <text>元</text>
+          </text>
+          <view class="section-content" a:for="{{billDetails.cell}}" a:key="billDetails.cell" a:for-item="cell">
+            <text class="left">{{cell.cellLeft}}</text>
+            <text class="right">{{cell.cellRight}}元</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="user-info" id="paid">
+      <text class="user-phone" id="font">已支付人民币</text>
+      <text class="user-name">¥27.00</text>
+    </view>
+  </view>
+  <!-- 明细项目 -->
+  <view class="basic-info red" style="display:{{bill.detailsProgram?'block':'none'}}">
+    <view class="basic-info-title" style="padding-right:30rpx;">
+      <text class="left">明细项目</text>
+      <text class="middle">金额</text>
+      <text class="right">消费量</text>
+    </view>
+    <view>
+      <view class="section" a:for="{{bill.detailsProgram}}" a:key="bill.detailsProgram" a:for-item="detailsProgram"  style="padding-top:20rpx;"> 
+        <view class="section-content" a:for="{{detailsProgram.cell}}" a:key="detailsProgram.cell" a:for-item="cell">
+          <text class="left">{{cell.cellLeft}}</text>
+          <text class="middle">{{cell.cellMiddle}}</text>
+          <text class="right pad-right">{{cell.cellRight}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 底部半圆 -->
+  <view class="circular">
+    <image class="img" src="{{icons.circular}}"></image>
+  </view>
+</view>

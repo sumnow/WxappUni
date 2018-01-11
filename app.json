@@ -1,12 +1,17 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/login/login"
+    "pages/flowPackages/flowPackages",
+    "pages/subscribeInstruction/subscribeInstruction",
+    "pages/chargeRecords/chargeRecords",
+    "pages/login/login",
+    "pages/bills/bills",
+    "pages/videoPackages/videoPackages",
+    "pages/videoPackageDetail/videoPackageDetail"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "titleBarColor": "#fff",
     "navigationBarTextStyle": "black"
   }
 }

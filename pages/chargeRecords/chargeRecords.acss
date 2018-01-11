@@ -1,0 +1,218 @@
+page {
+  background-color: #E7E7E7;
+  letter-spacing: 0;
+  color: #666666;
+  font-family: PingFangSC-Regular;
+  position: relative;
+}
+.container {
+  padding:0 30rpx 30rpx;
+  box-sizing: border-box;
+  background: #e7e7e7; 
+  overflow: hidden; 
+}
+.hidden {
+  display: none;
+}
+
+.dot {
+  position: absolute;
+  width: 12rpx;
+  height: 12rpx;
+  border-radius: 50%;
+  top: 98rpx;
+  margin-left: -7rpx;
+  left: 50%;
+  background: #27A6F4;
+}
+.se {
+  color: #eee;
+}
+.date-ul {
+  position:relative;
+  left: -630rpx;
+  width: 1500rpx;
+  display: flex;
+  /* transform: translateX(-630rpx); */
+}
+.data-wrap {
+  width: 630rpx;
+  overflow: hidden;
+}
+.title {
+  height: 66rpx;
+  line-height: 66rpx;
+  font-size: 26rpx;
+  display: block;
+  text-align: center;
+}
+
+/* 日期选择 */
+.date-picker {
+  background: white;
+  border-radius: 20rpx;
+  padding: 0 30rpx;
+  height: 40%;
+}
+.date-header {
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 1px solid #ddd;
+}
+.year{
+  display: inline-block;
+  height: 88rpx;
+  line-height: 88rpx;
+  width: 50%;
+  text-align: center;
+}
+.year text{
+  display: inline-block;
+  height: 100%;
+  box-sizing: border-box;
+}
+.date{
+  width: 630rpx;
+  padding: 30rpx 0rpx 45rpx;
+}
+.month{
+  position: relative;
+  display: inline-block;
+  width: 25%;
+  text-align: center;
+}
+
+.month button{
+  display: inline-block;
+  height: 80rpx;
+  line-height: 80rpx;
+  width: 80rpx;
+  margin-top: 15rpx; 
+  padding: 0;
+  border-radius: 50%;
+  background: #fff;
+  border:1px solid  #fff;
+}
+
+button[disabled][type="default"], wx-button[disabled]:not([type]) {
+color:rgba(0, 0, 0, 0.3);
+background-color:#fff;
+}
+
+.month button:after{
+  transform: scale(0)
+}
+.month .month-select{
+  background: #F93F42;
+  color: white;
+}
+.month .month-unselect {
+  background-color: #fff;
+}
+.year-select{
+  border-bottom: 2px solid #F93F42;
+  color: #F93F42;
+}
+/* 缴费记录 */
+.wrapper {
+  width: 2250rpx;
+  display: flex;
+  position: relative;
+  left: -750rpx;
+  height: 55%;
+  /* overflow: hidden; */
+}
+.wrap{
+  margin-right:60rpx;
+  display: flex;
+  height: auto;
+}
+.special-wrapper{
+  height: auto;
+}
+.wrap .section{
+  width: 690rpx;
+  background-color: white; 
+  margin-top: 30rpx; 
+  padding: 24rpx 30rpx 100rpx;
+  box-sizing: border-box;
+  border-radius: 20rpx 20rpx 0 0;
+  text-align: center;
+  position: relative;
+}
+.wrap .section .bill-num-total{
+  border-bottom: 1px solid #ddd;
+}
+.num-wrap {
+  display: flex;
+  height: 144rpx;
+  border-bottom: 1px dashed #ddd;
+}
+.prompt{
+  font-size: 36rpx;
+  color: #333333;
+  line-height: 36rpx;
+  margin: 60rpx 0;
+}
+.none{
+  font-size: 52rpx;
+  color: #F93F42;
+  line-height: 52rpx;
+}
+.count{
+  display: inline-block;
+  height: 56rpx;
+  line-height: 56rpx;
+  width: 56rpx;
+  border-radius: 50%;
+  margin-top: 44rpx;
+  color: white;
+  background-color: #09E000;
+}
+.count-wrap {
+  width: 100rpx;
+  display: inline-block;
+}
+.bill-num{
+  display: inline-block;
+  vertical-align: middle;
+  text-align: right;
+  width: 380rpx;
+  font-family: PingFangSC-Thin;
+}
+.unit{
+  line-height: 144rpx;
+  font-size: 60rpx;
+  color: #333333;
+}
+.num{
+  font-size: 72rpx;
+  line-height: 72rpx;
+  color: #F93F42;
+  padding-left: 20rpx;
+  font-weight: lighter;
+}
+.time{
+  display: inline-block;
+  width: 140rpx;
+  height: 80rpx;
+  margin-top: 32rpx;
+  text-align: left;
+  font-size: 30rpx;
+  color: #666666;
+  line-height: 40rpx;
+}
+.circular{
+  height: 40rpx; 
+  width: 100%; 
+  padding: 0 16rpx;
+  box-sizing: border-box; 
+  position: absolute;
+  bottom: -16rpx;  
+  left: 0;
+}
+ .img{
+  display: inline-block;
+  height: 32rpx; 
+  width: 100%;
+} 

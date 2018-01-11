@@ -1,0 +1,28 @@
+/* pages/subscribeInstruction/subscribeInstruction.wxss */
+page{
+  background-color:  #E7E7E7;
+  padding: 30rpx;
+  box-sizing: border-box;
+}
+.container{
+  background-color:  white;
+  border-radius: 20rpx;
+  padding:40rpx;
+}
+.title{
+  color: #666;
+  font-size: 32rpx;
+  line-height: 32rpx; 
+  padding-left:20rpx;
+  border-left: 10rpx solid #F93F42;
+}
+.content{
+  background-color: white;
+  margin-top: 10rpx;
+  margin-bottom: 40rpx;
+}
+.content text{
+  font-size: 26rpx;
+  line-height: 36rpx;
+  color: #aaa;
+}

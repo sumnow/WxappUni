@@ -1,0 +1,61 @@
+/* pages/videoPackages/videoPackages.wxss */
+
+.wrap{
+  height: 100%;
+  width: 100%;
+  background-color: #E7E7E7;
+  padding: 30rpx;
+  box-sizing: border-box;
+  letter-spacing: 0;
+}
+.wrap .video-option{
+  display: inline-block; 
+  height: 320rpx;
+  width: 32%;
+  background-color: #fff; 
+  margin-bottom: 20rpx;
+  text-align: center;
+  border-radius: 20rpx;
+  box-sizing: border-box;
+  position: relative;
+}
+.wrap .video-option:nth-child(3n-1){
+  margin-left: 2%;
+  margin-right: 2%;
+}
+.wrap .video-option .video-logo{
+  height: 130rpx;
+  width: 130rpx;
+  margin-top: 30rpx;
+} 
+.video-name {
+  display: inline-block; 
+  height: 72rpx;
+  width: 156rpx;
+  font-family: PingFangSC-Light;
+  font-size: 26rpx;
+  color: #333;
+  line-height: 36rpx; 
+  text-align: center;
+  margin-bottom:0rpx; 
+}
+.video-price {
+  display: inline-block;
+  height: 26rpx;
+  width: 156rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 26rpx;
+  color: #AAA;
+  line-height: 26rpx;
+}
+/* 百事TV日包角标图 */
+.wrap .video-option:last-child{
+  position: relative;
+}  
+.wrap .mask{
+  height: 60rpx;
+  width: 60rpx;
+  position: absolute;
+  top:0;
+  right:0;
+}  

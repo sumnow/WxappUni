@@ -1,0 +1,14 @@
+<!--pages/videoPackages/videoPackages.wxml-->
+
+<view class="wrap">
+  <block a:for="{{list}}" a:key="list" a:for-item="list" a:for-index="index">
+    <view id="{{index}}" class="video-option" onTap="navigateToVideoPackageDetail">
+      <image class="video-logo" src='{{list.logo}}'></image> 
+      <view class="video-name">{{list.name}}</view>
+      <view class="video-price">{{list.price}}</view>
+      <block a:if="{{index == 6}}"> 
+        <image class="mask" src="{{dayMark}}"></image>
+      </block> 
+    </view>
+  </block>
+</view>

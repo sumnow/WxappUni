@@ -1,0 +1,186 @@
+/* pages/bills/bills.wxss */
+
+page{
+  height: auto;
+  background-color: #E7E7E7;
+  padding: 30rpx 30rpx 50rpx;
+  box-sizing: border-box;
+}
+.container{
+  background-color:#fff;
+  border-radius: 20rpx 20rpx 0 0; 
+  padding: 40rpx 0rpx 40rpx 30rpx;
+  font-family: PingFangSC-Medium;
+  color: #333;
+  letter-spacing: 0;
+  font-size: 30rpx;
+  line-height: 30rpx;
+  position: relative;
+}
+/* 基本信息 - 账单信息 */
+.container .bill-info{
+  font-size: 36rpx;
+  line-height: 36rpx;
+  text-align: center;
+  margin-bottom: 30rpx;
+}
+.container .basic-info{
+  padding-right: 30rpx;
+}
+/* 右边框颜色 */
+.red{
+  border-right:8rpx solid #F93F42;
+}
+.blue{
+  border-right:8rpx solid #27A6F4;
+}
+.green{
+  border-right:8rpx solid #09E000;
+}
+.container .basic-info .basic-info-title{
+  color: #666;
+  line-height: 30rpx;
+  padding-left: 20rpx;
+  border-left: 10rpx solid #F93F42;
+}
+.container .basic-info .user-info{
+  height: 72rpx;
+  font-size: 72rpx;
+  line-height: 72rpx;
+  border-bottom: 1px solid #DDD;
+  padding-bottom: 20rpx;
+  overflow: hidden;
+}
+.container .basic-info .user-info .user-phone{
+  font-size: 36rpx;
+  line-height: 72rpx;
+}
+.container .basic-info .user-info .user-name{
+  font-family: PingFangSC-Regular;
+  float: right;
+}
+/* 账单费用字体大小 */
+#font{
+  font-size:30rpx;
+}
+#paid{
+  margin:60rpx 0;
+  border-bottom:1px dashed #DDD;
+}
+.container .basic-info .account-num {
+  padding-top: 30rpx;
+}
+.container .basic-info .email{
+  padding: 20rpx 0;  
+  border-bottom: 1px dashed #DDD;
+  overflow: hidden; 
+  box-sizing: border-box;
+}
+.container .basic-info .email text{
+  display: inline-block;
+  height: 54rpx; 
+  line-height: 54rpx;
+  vertical-align: middle;
+}
+.container .basic-info .email input{
+  display: inline-block;
+  vertical-align: middle;
+}
+.container .basic-info .email input .placeholder{
+  color: #bbb;
+  font-size: 30rpx;
+}
+.container .basic-info .email image{
+  display: inline-block;
+  height: 54rpx;
+  width:54rpx;
+  float: right;    
+}
+.container .bill-date{
+  font-size: 36rpx;
+  color: #F93F42;
+  line-height: 36rpx;
+  text-align: center;
+  margin-top: 60rpx; 
+  margin-bottom: 50rpx; 
+}
+.container .bill-date picker{
+  display: inline-block;
+}
+.triangle{
+  display: inline-block;
+  height: 24rpx;
+  width: 18rpx;
+  margin-left: 20rpx;
+}
+/* 补发、退订账单 */
+.container .reissue-unsubscribe{
+  margin: 60rpx 0;
+}
+.container .reissue-unsubscribe text{
+  display: inline-block;
+  width: 50%;
+  text-align: center;
+  color: #F93F42;
+  box-sizing: border-box;
+}
+.container .reissue-unsubscribe text:nth-child(1){
+  border-right:1px solid #DDD;
+}
+.container .reissue-unsubscribe text:nth-child(2){
+  border-left:1px solid #DDD;
+}
+/* 您的账单明细 */
+.section{
+  width: 100%;
+  padding:30rpx;
+  box-sizing: border-box;
+  border-bottom: 1px solid #DDD;
+  overflow: hidden;
+}
+.section:last-child{
+  border-bottom: none;
+}
+.section-content{
+  font-size: 26rpx;
+  color: #aaa;
+  margin-top: 20rpx;
+  height: auto;
+}
+.basic-info-title text{
+  display: inline-block;
+}
+.section text{
+  display: inline-block;
+}
+.left{
+  width: 55%;
+}
+.middle{
+  width: 17%;
+  text-align: center;
+}
+.right{
+  float: right; 
+  width: 28%;
+  text-align: right;
+}
+.pad-right{
+  padding-right:40rpx;
+  box-sizing:border-box;
+}
+.circular{
+  height: 32rpx; 
+  width: 100%; 
+  padding: 0 16rpx;
+  box-sizing: border-box;
+  position: absolute;
+  bottom: -16rpx; 
+  left: 0;
+}
+.img{
+  display: inline-block;
+  height: 32rpx;
+  width: 100%;
+}
+

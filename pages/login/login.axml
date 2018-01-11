@@ -1,0 +1,25 @@
+
+<view class="container">
+  <view a:if="{{!banded}}">
+    <image class="avatar" src="{{avatarUrl}}"></image>
+    <text class="ft60 block">Welcome</text>
+    <text class="ft15 block">尊敬的上海联通粉丝</text>
+    <view class="item op">
+      <image src="{{icons.loginPhone}}"></image>
+      <view></view>
+      <input onInput="phoneInput" value="{{phoneNumber}}" type="number" placeholder="请输入手机号码" maxlength="11" focus="true" cursor-spacing="140"></input>
+    </view>
+    <view class="item op">
+      <image src="{{icons.verificationCode}}"></image>
+      <view></view>
+      <input type="number" onInput="codeInput" placeholder="请输入验证码" maxlength="6"  cursor-spacing="80"></input>
+      <view></view>
+      <text onTap="sendCode">{{codeTitle}}</text>
+    </view>
+    <button class="item" onTap="bindPhone">立即绑定</button>
+  </view>
+  <view class="bind-success" a:else>
+    <canvas id="bindSuccess"></canvas>
+    <text>绑定成功</text>
+  </view>
+</view>
