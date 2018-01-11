@@ -15,13 +15,13 @@
     </view>
     <view class="email">
       <text>邮箱：</text>
-      <input value="{{userInfo.email}}" onBlur="loseBlur" focus="{{focus}}" placeholder="请输入邮箱账号" placeholder-class="placeholder" confirm-type="done"></input> 
-      <image onTap="updateEamil" src="{{icons.conserve}}"></image>
+      <input value="{{userInfo.email}}" bindblur="loseBlur" focus="{{focus}}" placeholder="请输入邮箱账号" placeholder-class="placeholder" confirm-type="done"></input> 
+      <image bindtap="updateEamil" src="{{icons.conserve}}"></image>
     </view>
   </view>
   <!-- 账单信息 -->
   <view class="bill-date">
-    <picker mode="date" value="{{date}}" start="{{dataStart}}" end="{{dataEnd}}" fields="month" onChange="billChoose">
+    <picker mode="date" value="{{date}}" start="{{dataStart}}" end="{{dataEnd}}" fields="month" bindchange="billChoose">
       <text>{{date}}</text>
       <image class="triangle" src="{{icons.rightArrow}}"></image>
     </picker>
@@ -43,21 +43,21 @@
   </view>
   <!-- 补发、退订账单 -->
   <view class="reissue-unsubscribe">
-    <text onTap="reissueBill">补发账单</text>
-    <text onTap="unsubscribeBill">退订账单</text>
+    <text bindtap="reissueBill">补发账单</text>
+    <text bindtap="unsubscribeBill">退订账单</text>
   </view>
   <!-- 您的账单明细 -->
   <view class="basic-info green">
     <view class="basic-info-title">您的账单明细</view>
     <view>
-      <view class="section" a:for="{{bill.billDetails}}" a:key="bill.billDetails" a:for-item="billDetails">
+      <view class="section" wx:for="{{bill.billDetails}}" wx:key="bill.billDetails" wx:for-item="billDetails">
         <view class="section-title">
           <text class="left">{{billDetails.sectionLeft}}</text>
           <text class="right">
             <text style="color:#F93F42">{{billDetails.sectionRight}}</text>
             <text>元</text>
           </text>
-          <view class="section-content" a:for="{{billDetails.cell}}" a:key="billDetails.cell" a:for-item="cell">
+          <view class="section-content" wx:for="{{billDetails.cell}}" wx:key="billDetails.cell" wx:for-item="cell">
             <text class="left">{{cell.cellLeft}}</text>
             <text class="right">{{cell.cellRight}}元</text>
           </view>
@@ -77,8 +77,8 @@
       <text class="right">消费量</text>
     </view>
     <view>
-      <view class="section" a:for="{{bill.detailsProgram}}" a:key="bill.detailsProgram" a:for-item="detailsProgram"  style="padding-top:20rpx;"> 
-        <view class="section-content" a:for="{{detailsProgram.cell}}" a:key="detailsProgram.cell" a:for-item="cell">
+      <view class="section" wx:for="{{bill.detailsProgram}}" wx:key="bill.detailsProgram" wx:for-item="detailsProgram"  style="padding-top:20rpx;"> 
+        <view class="section-content" wx:for="{{detailsProgram.cell}}" wx:key="detailsProgram.cell" wx:for-item="cell">
           <text class="left">{{cell.cellLeft}}</text>
           <text class="middle">{{cell.cellMiddle}}</text>
           <text class="right pad-right">{{cell.cellRight}}</text>

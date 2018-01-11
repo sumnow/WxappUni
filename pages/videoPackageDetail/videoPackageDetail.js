@@ -39,6 +39,7 @@ Page({
           disabled: 'true',
         });
         showToast(err.errorCode == 300002 ? '暂不支持4G用户' : '服务器故障', 3);
+        // showToast(err.errorCode == 300002 || 300004 ? '暂不支持4G用户' : '服务器故障', 3);
       },
     });
   },

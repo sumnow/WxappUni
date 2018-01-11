@@ -1,5 +1,5 @@
 
 {
-	"defaultTitle": "手机号绑定",
-	"allowsBounceVertical": true
+	"navigationBarTitleText": "手机号绑定",
+	"disableScroll": true
 }

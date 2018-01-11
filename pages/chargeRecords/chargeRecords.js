@@ -119,7 +119,7 @@ Page({
     // ],
   },
   // 1.生命周期函数--监听页面加载
-  onLoad() {
+  onShow() {
     const dateNow = new Date();
     this.setData({
       selectYear: dateNow.getFullYear(),
@@ -135,7 +135,6 @@ Page({
           // billInfo2: [res.data[1]],
           billInfo2: res.data,
         });
-        console.log(res.data)
         this.reFre();
       },
       fail: err => {
@@ -146,18 +145,17 @@ Page({
   reFre (){
     const selMon = this.data.selectMonth;
     const self = this;
-    function arrYear(inAr){
+    function arrYear(ar){
       var arr = [],
       arr0 = [],
       arr1 = [],
       arr2 = [];
-      inAr.forEach((e)=>{
+      ar.forEach((e)=>{
         arr.push(e.year.toString());
         arr0.push(e.data);
         arr1.push([]);
         arr2.push([]);
       });
-      
       arr0.forEach((e,i)=>{
         e.forEach((c)=>{
           arr1[i].push(c.months.toString());
@@ -188,26 +186,25 @@ Page({
       console.log(arr, arr2, arr1, nowSel)
       return [arr, arr2, arr1, nowSel];
     }
-    const dataGroup = arrYear(this.data.billInfo2)
-    console.log(dataGroup)
+    const arrGroup = arrYear(this.data.billInfo2)
     this.setData({
-      years: dataGroup[0],
-      availMonth: dataGroup[1],
-      months: dataGroup[2],
-      billInfo: dataGroup[3],
-      length: dataGroup[3].info.length,
-      availMonthL: dataGroup[1].length-1
+      years: arrGroup[0],
+      availMonth: arrGroup[1],
+      months: arrGroup[2],
+      billInfo: arrGroup[3],
+      length: arrGroup[3].info.length,
+      availMonthL: arrGroup[1].length-1
     });
     if(!this.data.availMonthL) {
-      let animation = app.sdk.createAnimation({
-        duration: 1000,
+      var animation = app.sdk.createAnimation({
+        duration: 0,
         timingFunction: "linear",
         delay: 0
       });
       this.animation = animation;
-      animation.left('0rpx').step();
+      this.animation.left('0rpx').step();
       this.setData({
-        animationData2: animation.export()
+        animationData2: this.animation.export()
       });
     }
   },
@@ -230,7 +227,7 @@ Page({
       this.animation.left(this.data.pageWidth).step({duration:0});
     }
     this.setData({
-      animationData1: animation.export()
+      animationData1: this.animation.export()
     });
     this.reFre()
   },
@@ -285,7 +282,7 @@ Page({
         delay: 0
       });
       this.animation = animation;
-      e.target.id === this.data.years[this.data.years.length-1] ? animation.left('-630rpx').step() : animation.left('0rpx').step();  
+      e.target.id === this.data.years[this.data.years.length-1] ? this.animation.left('-630rpx').step() : this.animation.left('0rpx').step();  
       this.setData({
         animationData2: animation.export(),
         selectYear: e.currentTarget.id,

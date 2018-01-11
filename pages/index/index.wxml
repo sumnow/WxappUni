@@ -1,8 +1,8 @@
 <!--index.wxml-->
 <view class="container">
   <!-- <view>
-    <view a:for="{{rich}}">
-      <text a:for="{{item}}" style="{{item.style}}" bindTap="testFunc">{{item.content}}</text>
+    <view wx:for="{{rich}}">
+      <text wx:for="{{item}}" style="{{item.style}}" bindTap="testFunc">{{item.content}}</text>
     </view>
   </view> -->
   
@@ -12,12 +12,12 @@
       <view class="card">
         <image src="../../images/index/cardBG.png"></image>
         <view class="package-data">
-          <canvas id="packageStatus"></canvas>
+          <canvas canvas-id="packageStatus"></canvas>
           <view>
             <text>{{accountInfo.mobile}}</text>
             <text style="background:{{flowColor}}" class="ft12">剩余流量:<text class="ft16">{{accountInfo.trafficInfo.remainValue}}</text>{{accountInfo.trafficInfo.unit}}</text>
             <text style="background:{{voiceColor}}" class="ft12">剩余语音:<text class="ft16">{{accountInfo.voicesInfo.remainValue}}</text>{{accountInfo.voicesInfo.unit}}</text>
-            <text class="{{flowEmergency?'flow-emergency':'flow-normal'}};" onTap="goFlowPackages" >充流量</text>
+            <text class="{{flowEmergency?'flow-emergency':'flow-normal'}}" bindtap="goFlowPackages" >充流量</text>
           </view>
         </view>
         <view class="account-data">
@@ -38,9 +38,9 @@
         </view>
       </view>
       <view class="buttons">
-        <view class="button" onTap="goChargeRecords">缴费记录</view>
+        <view class="button" bindtap="goChargeRecords">缴费记录</view>
         <view class="split"></view>
-        <view class="button" onTap="goBills">电子对账单</view>
+        <view class="button" bindtap="goBills">电子对账单</view>
       </view>
     </view>
     <view class="detail">
@@ -55,7 +55,7 @@
           <text>流量</text>
         </view>
         <view> 
-          <view class="detail-item" a:for="{{accountInfo.detail.trafficDetail}}" a:key="{{index}}">
+          <view class="detail-item" wx:for="{{accountInfo.detail.trafficDetail}}" wx:key="{{index}}">
             <view>
               <text class="detail-item-title">{{item.resourcesName}}</text>
               <text class="detail-item-data">剩余<text>{{item.remainValue}}{{item.remainUnit}}</text>/共{{item.totalValue}}{{item.totalUnit}}</text>
@@ -67,7 +67,7 @@
           <image class="detail-type-icon" src="{{icons.voice}}"></image>
           <text>语音</text>
         </view>
-        <view class="detail-item" a:for="{{accountInfo.detail.voicesDetail}}" a:key="{{index}}">
+        <view class="detail-item" wx:for="{{accountInfo.detail.voicesDetail}}" wx:key="{{index}}">
             <view>
               <text class="detail-item-title">{{item.resourcesName}}</text>
               <text class="detail-item-data">剩余<text>{{item.remainValue}}{{item.remainUnit}}</text>/共{{item.totalValue}}{{item.totalUnit}}</text>

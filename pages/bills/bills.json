@@ -1,5 +1,5 @@
 {
-  "defaultTitle": "电子对账单",
+  "navigationBarTitleText": "电子对账单",
   "backgroundTextStyle": "dark",
-  "pullRefresh": true
+  "enablePullDownRefresh": true
 }

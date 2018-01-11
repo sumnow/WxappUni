@@ -2,10 +2,11 @@
 
 page{
   background-color: #E7E7E7;
+}
+.container{
   padding: 30rpx;
   box-sizing: border-box; 
-  letter-spacing: 0; 
-  font-family: PingFangSC-Thin;
+  height: 100vh;
 }
 .top{
   width: 100%;

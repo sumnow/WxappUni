@@ -17,8 +17,9 @@ App({
           return s;
       }
     }
+    this.sdk = window === undefined ? wx : my
+
     // 登录
-    this.sdk = my;
     swizzling(this);
     
     this.sdk.login({
@@ -49,10 +50,20 @@ App({
     });
   },
   setToken(t) {
-    // this.gd.token = t;
-    // this.sdk.setStorageSync('token', t);
-    this.gd.token = 'Bearer ' + t;
-    this.sdk.setStorageSync('token', this.gd.token);
+    this.gd.token = t;
+    this.sdk.setStorageSync('token', t);
+    if (t) {
+      const i = t.split(".")[1];
+      const obj= JSON.parse(atob(i));
+      this.gd.jwtInfo = {
+        phone: obj.jti,
+        delegate: obj.aud,
+      };
+    } else {
+      this.gd.jwtInfo = null;
+    }
+    // this.gd.token = 'Bearer ' + t;
+    // this.sdk.setStorageSync('token', this.gd.token);
   },
   getUserInfo() {
     this.sdk.getUserInfo({
@@ -92,6 +103,7 @@ App({
   // globalData
   gd: {
     userInfo: null,
+    jwtInfo: null,
     systemInfo: null,
     rate: null,
     token: null,

@@ -1,6 +1,6 @@
 
 {
-  "defaultTitle": "余量查询",
-  "pullRefresh": true,
+  "navigationBarTitleText": "余量查询",
+  "enablePullDownRefresh": true,
   "backgroundTextStyle": "dark"
 }

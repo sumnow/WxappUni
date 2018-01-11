@@ -5,20 +5,20 @@
   <!-- 日期选择 -->
   <view class="date-picker">
     <view class="date-header">
-      <block a:for="{{years}}" a:key="{{index}}">
+      <block wx:for="{{years}}" wx:key="{{index}}">
         <view class="year">
-          <text id="{{item}}" onTap="selectYear" class="{{item == selectYear ? 'year-select' : 'year-unselect'}}">{{item}}</text>
+          <text id="{{item}}" bindtap="selectYear" class="{{item == selectYear ? 'year-select' : 'year-unselect'}}">{{item}}</text>
         </view>
       </block>
     </view>
     <view class="data-wrap">
       <view class="date-ul" animation="{{animationData2}}">
-        <block a:for="{{availMonth}}" a:key="{{index}}" a:for-index="idx">
+        <block wx:for="{{availMonth}}" wx:key="{{index}}" wx:for-index="idx">
           <view class="date" id="{{idx}}">
             <div class="name">
-              <block a:for="{{selectYear == currentYear ? availMonth[availMonthL] : availMonth[0]}}" a:key="{{index}}">
+              <block wx:for="{{selectYear == currentYear ? availMonth[availMonthL] : availMonth[0]}}" wx:key="{{index}}">
                 <view  class="month {{item.el?'as':'se'}}" id="{{item.month}}">
-                  <button id="{{item.year + item.month}}" onTap="selectMonth" class="{{item.sel ? 'month-select' : 'month-unselect'}}" disabled="{{!item.num}}">{{item.month}}</button>
+                  <button id="{{item.year + item.month}}" bindtap="selectMonth" class="{{item.sel ? 'month-select' : 'month-unselect'}}" disabled="{{!item.num}}">{{item.month}}</button>
                   <view class="" class="dot {{ !item.hasData ? 'hidden' : ''}}"></view>
                 </view>
               </block>
@@ -30,7 +30,7 @@
   </view>
   
   <!-- 缴费记录 -->
-  <!-- <view onTouchStart="handletouchstart" onTouchEnd="handletouchend" class="wrapper {{length >= 3 ? 'special-wrapper' : ''}}" animation="{{animationData2}}">
+  <view bindtouchstart="handletouchstart" bindtouchend="handletouchend" class="wrapper {{length >= 3 ? 'special-wrapper' : ''}}" animation="{{animationData1}}">
     <view class="wrap" >
       <view class="section">
         <text>{{currentYear}}年{{currentMonth}}月</text>
@@ -38,8 +38,8 @@
           <text class='unit'>¥</text>
           <text class='num'>{{numTotal}}</text>
         </view>
-        <view a:if="{{length != 0}}">
-          <view class="num-wrap" a:for="{{billInfo.info}}" a:key="billInfo.info" a:for-index="billInfoIndex" a:for-item="items">
+        <view wx:if="{{length != 0}}">
+          <view class="num-wrap" wx:for="{{billInfo.info}}" wx:key="billInfo.info" wx:for-index="billInfoIndex" wx:for-item="items">
             <view class="count-wrap">
               <view class="count">{{billInfoIndex+1}}</view>
             </view>
@@ -50,7 +50,7 @@
             </view>
           </view>
         </view>
-        <view a:else>
+        <view wx:else>
           <view class="prompt">尊敬的上海联通粉丝</view>
           <view class="none">本月您还没有缴费记录哦</view> 
         </view>
@@ -66,8 +66,8 @@
           <text class='unit'>¥</text>
           <text class='num'>{{numTotal}}</text>
         </view>
-        <view a:if="{{length != 0}}">
-          <view class="num-wrap" a:for="{{billInfo.info}}" a:key="billInfo.info" a:for-index="billInfoIndex" a:for-item="items">
+        <view wx:if="{{length != 0}}">
+          <view class="num-wrap" wx:for="{{billInfo.info}}" wx:key="billInfo.info" wx:for-index="billInfoIndex" wx:for-item="items">
             <view class="count-wrap">
               <view class="count">{{billInfoIndex+1}}</view>
             </view>
@@ -78,7 +78,7 @@
             </view>
           </view>
         </view>
-        <view a:else>
+        <view wx:else>
           <view class="prompt">尊敬的上海联通粉丝</view>
           <view class="none">本月您还没有缴费记录哦</view> 
         </view>
@@ -94,8 +94,8 @@
           <text class='unit'>¥</text>
           <text class='num'>{{numTotal}}</text>
         </view>
-        <view a:if="{{length != 0}}">
-          <view class="num-wrap" a:for="{{billInfo.info}}" a:key="billInfo.info" a:for-index="billInfoIndex" a:for-item="items">
+        <view wx:if="{{length != 0}}">
+          <view class="num-wrap" wx:for="{{billInfo.info}}" wx:key="billInfo.info" wx:for-index="billInfoIndex" wx:for-item="items">
             <view class="count-wrap">
               <view class="count">{{billInfoIndex+1}}</view>
             </view>
@@ -106,7 +106,7 @@
             </view>
           </view>
         </view>
-        <view a:else>
+        <view wx:else>
           <view class="prompt">尊敬的上海联通粉丝</view>
           <view class="none">本月您还没有缴费记录哦</view> 
         </view>
@@ -115,5 +115,5 @@
         </view>
       </view>
     </view>
-  </view> -->
+  </view>
 </view>

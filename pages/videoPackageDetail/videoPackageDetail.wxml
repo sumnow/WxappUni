@@ -1,0 +1,27 @@
+<!--pages/videoPackageDetail/videoPackageDetail.wxml-->
+
+<view class="container">
+  <!-- 顶部区域  -->
+  <view animation="{{animationData}}" class="top">
+    <view class="product-name" animation="{{animationTitleData}}">
+      <view class="product-title">{{name}}</view>  
+      <view class="more-title">定向流量包</view> 
+      <view class="btn">{{product.price}}</view>
+    </view>
+    <image src="{{product.logo}}" class="logo" animation="{{animationLogoData}}"></image> 
+  </view>
+
+  <!-- 资费说明  -->
+  <view class="title">资费说明</view>
+  <scroll-view class="content" scroll-y="true" scroll-with-animation="true" bindscroll="scroll" animation="{{animationScrollViewData}}">
+    <text>{{product.introduce}}</text>  
+  </scroll-view>  
+
+  <!-- 底部按钮 --> 
+  <view class="bottom">
+    <button class="{{disabled?'border-none':''}}" hover-class="none" disabled="{{disabled}}" 
+      bindtap="{{button=='立即开通'?'subscribeVideoPackage':'deleteVideoPackage'}}">{{button}}</button>
+  </view>
+</view>
+
+

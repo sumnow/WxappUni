@@ -1,10 +1,14 @@
 /* pages/flowPackages/flowPackages.wxss */
 page {
-  background-color: #E7E7E7;
   letter-spacing: 0;
   color: #666666;
   font-family: PingFangSC-Regular;
   position: relative;
+  background-color: #E7E7E7;
+}
+.container{
+  max-height: 100vh;
+  overflow: scroll;
 }
 /* 顶部tab栏  */
 .tab {

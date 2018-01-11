@@ -23,7 +23,6 @@
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1;
 }
 .package-data {
   display: flex;
@@ -32,9 +31,11 @@
 .package-data canvas {
   flex: 1;
   height: 320rpx;
+  z-index: 99;
 } 
 .package-data > view {
   flex: 1;
+  z-index: 99;
 }
 .package-data view > text {
   display: block;
@@ -82,20 +83,24 @@
   display: flex;
   color: white;
   font-size: 26rpx;
+  line-height: 36rpx;
 }
 .account-data > view {
   flex: 1;
   text-align: center;
+  z-index: 99;
 }
 .account-data > text {
   width: 1px;
   margin-top: 14rpx;
   height: 60rpx;
   background: #ddd;
+  z-index: 99;
 }
 .account-value {
   display: block;
   font-size: 36rpx;
+  line-height: 50rpx;
 }
 .account-value text {
   font-size: 24rpx;

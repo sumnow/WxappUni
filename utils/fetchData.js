@@ -14,8 +14,8 @@ const fetchData = config => {
   config.data.delegate = '2000001';
   config.header = config.header || {};
   if (app.gd.token) {
-    config.header.Authorization = app.gd.token;
-    // config.header.token = app.gd.token;
+    // config.header.Authorization = app.gd.token;
+    config.header.token = app.gd.token;
   }
   // config.header.token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiIyMDAwMDAxIiwiZXhwIjoxNTQ1ODkwOTE1LCJqdGkiOiIxNTY5MjE1MTUzNyJ9.oVJTqj0JKNiRoI5jk3L49_-iMpxJEQXvU3YDoHkSXKE';
   if (!config.header['content-type']) {

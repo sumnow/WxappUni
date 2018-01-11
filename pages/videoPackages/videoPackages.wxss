@@ -1,9 +1,10 @@
 /* pages/videoPackages/videoPackages.wxss */
-
+page{
+  background-color: #E7E7E7;
+}
 .wrap{
   height: 100%;
   width: 100%;
-  background-color: #E7E7E7;
   padding: 30rpx;
   box-sizing: border-box;
   letter-spacing: 0;
