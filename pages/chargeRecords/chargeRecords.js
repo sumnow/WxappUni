@@ -146,9 +146,9 @@ Page({
     const selMon = this.data.selectMonth;
     const self = this;
     function arrYear(ar){
-      var arr = [],
-      arr0 = [],
-      arr1 = [],
+      var arr = [], //存入年份
+      arr0 = [], // 存入初始
+      arr1 = [], 
       arr2 = [];
       ar.forEach((e)=>{
         arr.push(e.year.toString());
@@ -167,6 +167,7 @@ Page({
         for(let l = 1; l < 13; l ++) {
           if(e.includes(l.toString())) {
             let dataEveryMonth = arr0[i].filter(e=>e.months == l.toString());
+
             let unselMonth = {hasData: dataEveryMonth[0].num != 0 ,month: l,num: dataEveryMonth[0].num, year: arr[i], sel: false, info: dataEveryMonth[0].info, data: dataEveryMonth};
             let selMonth = {hasData: dataEveryMonth[0].num != 0 ,month: l,num: dataEveryMonth[0].num, year: arr[i], sel: true, info: dataEveryMonth[0].info, data: dataEveryMonth};
             if(selMon.slice(4) == unselMonth.month && selMon.slice(0, 4) == unselMonth.year) {
@@ -183,12 +184,14 @@ Page({
           };
         };
       });
-      console.log(arr, arr2, arr1, nowSel)
       return [arr, arr2, arr1, nowSel];
     }
+
+    // 输出年份数组， 月份数组， 可选月份数组， 选中的月份属性
     const arrGroup = arrYear(this.data.billInfo2)
+    console.log(arrGroup)
     this.setData({
-      years: arrGroup[0],
+      years: arrGroup[0], 
       availMonth: arrGroup[1],
       months: arrGroup[2],
       billInfo: arrGroup[3],
@@ -198,8 +201,6 @@ Page({
     if(!this.data.availMonthL) {
       var animation = app.sdk.createAnimation({
         duration: 0,
-        timingFunction: "linear",
-        delay: 0
       });
       this.animation = animation;
       this.animation.left('0rpx').step();
@@ -282,7 +283,7 @@ Page({
         delay: 0
       });
       this.animation = animation;
-      e.target.id === this.data.years[this.data.years.length-1] ? this.animation.left('-630rpx').step() : this.animation.left('0rpx').step();  
+      e.target.id === this.data.years[this.data.years.length-1] ? animation.left('-630rpx').step() : animation.left('0rpx').step();  
       this.setData({
         animationData2: animation.export(),
         selectYear: e.currentTarget.id,

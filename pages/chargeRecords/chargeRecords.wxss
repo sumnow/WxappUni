@@ -156,7 +156,7 @@ background-color:#fff;
 }
 .none{
   font-size: 52rpx;
-  color: #F93F42;
+  color: #aaa;
   line-height: 52rpx;
 }
 .count{

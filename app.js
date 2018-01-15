@@ -1,5 +1,6 @@
 //app.js
 import swizzling from './utils/methodsSwizzling';
+import base64 from './utils/base64';
 
 App({
   onLaunch() {
@@ -17,7 +18,8 @@ App({
           return s;
       }
     }
-    this.sdk = window === undefined ? wx : my
+    this.isWechat = window === undefined;
+    this.sdk = this.isWechat ? wx : my
 
     // 登录
     swizzling(this);
@@ -28,6 +30,7 @@ App({
       },
     });
     this.gd.token = this.sdk.getStorageSync('token');
+    this.setToken(this.gd.token, 0);
     // this.gd.token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiIyMDAwMDAxIiwiZXhwIjoxNTQ1ODkwOTE1LCJqdGkiOiIxNTY5MjE1MTUzNyJ9.oVJTqj0JKNiRoI5jk3L49_-iMpxJEQXvU3YDoHkSXKE'
     // 获取用户信息
     this.getUserInfo();
@@ -49,12 +52,14 @@ App({
       },
     });
   },
-  setToken(t) {
-    this.gd.token = t;
-    this.sdk.setStorageSync('token', t);
+  setToken(t, refresh=true) {
+    if (refresh) {
+      this.gd.token = t;
+      this.sdk.setStorageSync('token', t);
+    }
     if (t) {
       const i = t.split(".")[1];
-      const obj= JSON.parse(atob(i));
+      const obj= JSON.parse(base64.decode(i));
       this.gd.jwtInfo = {
         phone: obj.jti,
         delegate: obj.aud,
@@ -62,8 +67,6 @@ App({
     } else {
       this.gd.jwtInfo = null;
     }
-    // this.gd.token = 'Bearer ' + t;
-    // this.sdk.setStorageSync('token', this.gd.token);
   },
   getUserInfo() {
     this.sdk.getUserInfo({
@@ -92,7 +95,8 @@ App({
     this.sdk.getSystemInfo({
       success: res => {
         this.gd.systemInfo = res;
-        this.gd.rate = res.screenWidth / 750;
+        // for different platform
+        this.gd.rate = (res.screenWidth || res.windowWidth) / 750;
         funcs.success(res);
       },
       fail: funcs.fail,
@@ -109,5 +113,6 @@ App({
     token: null,
     pageLock: false,
   },
+  isWechat: true,
   sdk: null,
 });

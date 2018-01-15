@@ -25,6 +25,10 @@ page{
   top: -50rpx;
   right: -40rpx;
 }
+.top .logo > image{
+  height: 100%;
+  width: 100%;
+} 
 .top .product-name{
   height: 268rpx;
   width: 360rpx; 
@@ -75,7 +79,10 @@ page{
   color: #AAA;
   line-height: 42rpx;
 }
-
+.scroll{
+  height: 100%;
+  width: 100%;
+}
 /* 底部按钮 */
 .bottom{
   background-color: #fff;

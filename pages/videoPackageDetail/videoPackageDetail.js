@@ -38,8 +38,7 @@ Page({
         this.setData({
           disabled: 'true',
         });
-        showToast(err.errorCode == 300002 ? '暂不支持4G用户' : '服务器故障', 3);
-        // showToast(err.errorCode == 300002 || 300004 ? '暂不支持4G用户' : '服务器故障', 3);
+        showError(err);
       },
     });
   },
@@ -61,23 +60,23 @@ Page({
     const animation = this.genAnimation();
     const animationLogoData = this.genAnimation();
     const animationTitleData = this.genAnimation();
-    const animationScrollView = this.genAnimation();
+    const animationScroll = this.genAnimation();
     if (scrollTop < 10) {
       animation.height("40%").step();
       animationLogoData.width("420rpx").height("394rpx").step();
       animationTitleData.scale(1, 1).translate(0, 0).step();
-      animationScrollView.height("40%").step();
+      animationScroll.height("40%").step();
     } else{
       animation.height("25%").step();
       animationLogoData.width("311rpx").height("301rpx").step();
       animationTitleData.scale(0.7, 0.7).translate(-25, -windowWidth).step();
-      animationScrollView.height("55%").step();
+      animationScroll.height("55%").step();
     };
     this.setData({
       animationData: animation.export(),
       animationLogoData: animationLogoData.export(),
       animationTitleData: animationTitleData.export(),
-      animationScrollViewData: animationScrollView.export(),
+      animationScrollData: animationScroll.export(),
     });
   },
   // 4.请求数据，订购视频包业务

@@ -32,7 +32,7 @@
       <view class="flow-type">
         <block wx:for="{{flowMonthOption}}" wx:key="flowMonthOption" wx:for-item="flowMonthOption" wx:for-index="flowMonthOptionIndex">
           <view id="{{flowMonthOptionIndex}}" class="flow-option common {{selectedPackagesId == flowMonthOptionIndex?'selected-font':''}}" bindtap="FlowPackages">
-            <view wx:if="{{flowMonthOptionIndex > 5}}" class="ticket {{selectedPackagesId == flowMonthOptionIndex?'selected-ticket':''}}">券</view>
+            <!-- <view wx:if="{{flowMonthOptionIndex > 5}}" class="ticket {{selectedPackagesId == flowMonthOptionIndex?'selected-ticket':''}}">券</view> -->
             <text class='flow-size'>{{flowMonthOption.size}}</text>
             <text class='flow-price'>{{flowMonthOption.price}}</text>
             <block wx:if="{{selectedPackagesId == flowMonthOptionIndex}}">

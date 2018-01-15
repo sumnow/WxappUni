@@ -22,7 +22,7 @@ module.exports = (app) => {
 		app.sdk.redirectTo(config);      
     };
     
-    if (window === undefined) {
+    if (app.isWechat) {
       return;
     }
 	

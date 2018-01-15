@@ -92,7 +92,7 @@ Page({
       },
       {
         option: '省内流量\n日包',
-        title: '选择流量包(省内流量 立即生效)',
+        title: '选择流量包(省内流量 当日有效)',
         flowPlusTypeOption: [
           { productId: 2000001, size: '1G', price: '售价5元', },
           { productId: 2000002, size: '3G', price: '售价10元', },
@@ -125,8 +125,11 @@ Page({
 
   // 1.生命周期函数--监听页面加载
   onLoad(options) {
+    if(app.gd.token){
+      app.setToken(app.gd.token);
+    };
     this.setData({
-      mobile: options.mobile,
+      phone: app.gd.jwtInfo.phone,
       // 默认包月包
       flowMonthOption: this.data.flowMonthType[0].flowMonthTypeOption,
       flowMonthOptionTitle: this.data.flowMonthType[0].title,
@@ -205,7 +208,7 @@ Page({
     animation.height('700rpx').step();
     this.setData({
       selectedPackagesId: id,
-      phoneNum: this.data.mobile,
+      phoneNum: this.data.phone,
       maskDisplay: 'block',
       animation: animation.export(),
     });

@@ -123,7 +123,7 @@ page {
   position: relative;
 }
 /* 获赠电子券 */
-.ticket{
+/* .ticket{
   display: inline-block;
   height: 40rpx;
   width: 40rpx;
@@ -135,7 +135,7 @@ page {
   position: absolute;
   top: 0;
   left: 0; 
-}
+} */
 /* 选中框勾选时的角标样式 */
 .img{
   display: inline-block;

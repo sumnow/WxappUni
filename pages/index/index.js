@@ -71,11 +71,13 @@ Page({
   },
   onLoad() {
     if (app.gd.token) {
-      this.drawBase();
       this.getAccountInfo(1);
     } else {
       this.goLogin();      
     }
+  },
+  onReady() {
+    this.drawBase();
   },
   onPullDownRefresh() {
     this.getAccountInfo();
@@ -183,7 +185,7 @@ Page({
   },
   goFlowPackages() {
     app.sdk.ucNavigateTo({
-      url: '../flowPackages/flowPackages?mobile=' + this.data.accountInfo.mobile,
+      url: '../flowPackages/flowPackages',
     });
   },
 

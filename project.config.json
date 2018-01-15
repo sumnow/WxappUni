@@ -20,13 +20,17 @@
 			"current": -1,
 			"list": []
 		},
+		"game": {
+			"current": -1,
+			"list": []
+		},
 		"miniprogram": {
 			"current": 0,
 			"list": [
 				{
 					"id": 0,
 					"name": "艾雷坤",
-					"pathName": "pages/flowPackages/flowPackages",
+					"pathName": "pages/index/index",
 					"query": ""
 				},
 				{

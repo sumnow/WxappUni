@@ -56,11 +56,12 @@ button {
   background: #F93F42;
   line-height: 90rpx;
 }
-.bind-success canvas {
+.bind-success image {
   width: 120rpx;
   height: 120rpx;
-  border-radius: 120rpx;
-  border: 8rpx solid #09E000;
+  display: block;
+  /* border-radius: 120rpx; */
+  /* border: 8rpx solid #09E000; */
   margin: 25vh auto 40rpx;
 }
 .bind-success text {

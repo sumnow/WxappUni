@@ -19,7 +19,7 @@
     <button class="item" bindtap="bindPhone">立即绑定</button>
   </view>
   <view class="bind-success" wx:else>
-    <canvas canvas-id="bindSuccess"></canvas>
+    <image src="../../images/toast/success.png"></image>
     <text>绑定成功</text>
   </view>
 </view>

@@ -29,8 +29,8 @@
   color: white;
 }
 .package-data canvas {
-  flex: 1;
   height: 320rpx;
+  width: 300rpx;
   z-index: 99;
 } 
 .package-data > view {
@@ -77,6 +77,7 @@
 }
 .ft16 {
   font-size: 32rpx;
+  line-height: 44rpx;
 }
 .account-data {
   margin-top: 30rpx;
@@ -189,12 +190,15 @@
   text-align: right;
 }
 .detail-item-data text {
-  font-size: 28rpx;
   color: #f93f42;
 }
 progress {
   border-radius: 3px;
   overflow: hidden;
   margin-top: 16rpx;
+}
+/* for the fucking alipay progress bug */
+.a-progress-inner-outer {
+  margin-right: -10px;
 }
   

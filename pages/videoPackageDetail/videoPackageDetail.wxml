@@ -8,14 +8,18 @@
       <view class="more-title">定向流量包</view> 
       <view class="btn">{{product.price}}</view>
     </view>
-    <image src="{{product.logo}}" class="logo" animation="{{animationLogoData}}"></image> 
+    <view class="logo" animation="{{animationLogoData}}">
+      <image src="{{product.logo}}"></image> 
+    </view> 
   </view>
 
   <!-- 资费说明  -->
   <view class="title">资费说明</view>
-  <scroll-view class="content" scroll-y="true" scroll-with-animation="true" bindscroll="scroll" animation="{{animationScrollViewData}}">
-    <text>{{product.introduce}}</text>  
-  </scroll-view>  
+  <view class="content" animation="{{animationScrollData}}">
+    <scroll-view class="scroll"  scroll-y="true" scroll-with-animation="true" bindscroll="scroll">
+      <text>{{product.introduce}}</text>  
+    </scroll-view>
+  </view>
 
   <!-- 底部按钮 --> 
   <view class="bottom">
