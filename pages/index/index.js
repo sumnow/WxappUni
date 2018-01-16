@@ -92,6 +92,10 @@ Page({
         if (loading) {
           hideLoading();
         }
+        const voiceRemain = parseInt(res.data.voicesInfo.remainValue);
+        if (voiceRemain > 999) {
+          res.data.voicesInfo.remainValue = '999+';
+        }
         this.setData({
           accountInfo: res.data,
         });

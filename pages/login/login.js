@@ -2,7 +2,7 @@
 import { sendCode, bindPhone } from '../../utils/service.js';
 import { verificationCode, loginPhone } from '../../utils/icons';
 import { showLoading, hideLoading, showToast, showError } from '../../utils/notify';
-
+import { phoneValid } from '../../utils/util';
 //获取应用实例
 const app = getApp();
 
@@ -39,6 +39,10 @@ Page({
     if (this.data.countDownSeconds > 0 || this.data.sendingCode) {
       return;
     }
+    if (!phoneValid(this.data.phoneNumber)) {
+      showToast('输入正确手机号', 1);
+      return;
+    }
     //send code here
     this.data.sendingCode = true;
     const data = {
@@ -59,6 +63,14 @@ Page({
     });
   },
   bindPhone() {
+    if (!phoneValid(this.data.phoneNumber)) {
+      showToast('输入正确手机号', 1);
+      return;
+    }
+    if (this.data.code.length < 6) {
+      showToast('输入正确验证码', 1);
+      return;
+    }
     const data = {
       mobile: this.data.phoneNumber,
       captcha: this.data.code,

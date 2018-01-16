@@ -201,6 +201,8 @@ Page({
     if(!this.data.availMonthL) {
       var animation = app.sdk.createAnimation({
         duration: 0,
+        timingFunction: "linear",
+        delay: 0
       });
       this.animation = animation;
       this.animation.left('0rpx').step();

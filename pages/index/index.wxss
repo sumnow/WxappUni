@@ -14,7 +14,7 @@
 }
 .card {
   margin: 20rpx 20rpx 0;
-  padding: 68rpx 40rpx;
+  padding: 68rpx 40rpx 30rpx;
   position: relative;
 }
 .card > image {
@@ -30,7 +30,7 @@
 }
 .package-data canvas {
   height: 320rpx;
-  width: 300rpx;
+  width: 320rpx;
   z-index: 99;
 } 
 .package-data > view {

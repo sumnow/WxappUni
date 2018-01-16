@@ -17,7 +17,7 @@
   <view class="title">资费说明</view>
   <view class="content" animation="{{animationScrollData}}">
     <scroll-view class="scroll"  scroll-y="true" scroll-with-animation="true" bindscroll="scroll">
-      <text>{{product.introduce}}</text>  
+      <text>{{product.introduce}}</text>
     </scroll-view>
   </view>
 

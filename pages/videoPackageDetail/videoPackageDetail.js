@@ -10,6 +10,11 @@ Page({
   data: {
     flag: false,
     button: '立即开通',
+    test:{
+      demo: [
+        '111', '222',
+      ]
+    },
   },
   // 1.生命周期函数--监听页面加载
   onLoad(options) {
@@ -23,13 +28,15 @@ Page({
       name: options.name.substr(0, 4),
       title: options.name,
     });
+    console.log(this.data.test.demo);
+    console.log(options);
     // 请求数据，获取视频包产品信息
     const id = parseInt(this.data.product.productId);
     getVideoPackage(id, {
       success: res => {
         console.log(res);
         this.setData({
-          button: res.statusCode == 204 ? '立即开通': '立即退订',
+          button: res.statusCode == 204 || res.data.HTTPStatus == 204 ? '立即开通': '立即退订',
         });
         hideLoading();
       },

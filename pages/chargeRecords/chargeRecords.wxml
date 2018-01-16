@@ -15,14 +15,14 @@
       <view class="date-ul" animation="{{animationData2}}">
         <block wx:for="{{availMonth}}" wx:key="{{index}}" wx:for-index="idx">
           <view class="date" id="{{idx}}">
-            <div class="name">
+            <view class="name">
               <block wx:for="{{selectYear == currentYear ? availMonth[availMonthL] : availMonth[0]}}" wx:key="{{index}}">
                 <view  class="month {{item.el?'as':'se'}}" id="{{item.month}}">
                   <button id="{{item.year + item.month}}" bindtap="selectMonth" class="{{item.sel ? 'month-select' : 'month-unselect'}}" disabled="{{!item.num}}">{{item.month}}</button>
                   <view class="" class="dot {{ !item.hasData ? 'hidden' : ''}}"></view>
                 </view>
               </block>
-            </div>
+            </view>
           </view>
         </block>
       </view>
@@ -80,7 +80,7 @@
         </view>
         <view wx:else>
           <view class="prompt">尊敬的上海联通粉丝</view>
-          <view class="none">本月您还没有缴费记录哦</view> 
+          <view class="none">本月您没有缴费记录哦</view> 
         </view>
         <view class="circular">
           <image class="img" src="{{icons.circular}}"></image> 

@@ -60,7 +60,7 @@
               <text class="detail-item-title">{{item.resourcesName}}</text>
               <text class="detail-item-data">剩余<text>{{item.remainValue}}{{item.remainUnit}}</text>/共{{item.totalValue}}{{item.totalUnit}}</text>
             </view>
-            <progress stroke-width="4" active="true" activeColor="{{flowColor}}" percent="{{item.remainPercent}}"></progress>
+            <progress stroke-width="6" active="true" activeColor="{{flowColor}}" percent="{{item.remainPercent}}"></progress>
           </view>
         </view>
         <view class="detail-type">
@@ -72,7 +72,7 @@
               <text class="detail-item-title">{{item.resourcesName}}</text>
               <text class="detail-item-data">剩余<text>{{item.remainValue}}{{item.remainUnit}}</text>/共{{item.totalValue}}{{item.totalUnit}}</text>
             </view>
-            <progress stroke-width="4" active="true" activeColor="{{voiceColor}}" percent="{{item.remainPercent}}"></progress>
+            <progress stroke-width="6" active="true" activeColor="{{voiceColor}}" percent="{{item.remainPercent}}"></progress>
           </view>
       </view>
     </view>
