@@ -1,14 +1,36 @@
 
+import md5 from './md5';
 const url = 'https://api.10010sh.cn/';
 // const url = "https://192.168.2.124:8080"
 
 const app = getApp();
 
+const sign = config => {
+  let params = config.data;
+  const arr = [];
+  arr.push(app.gd.jwtInfo.phone || params.mobile);
+  arr.push(app.gd.jwtInfo.delegate || params.delegateID);
+  arr.push(config.method);
+  arr.push(`/${config.url}`);
+  const timestamp = Math.floor(Date.now() / 1000);
+  arr.push(timestamp);
+  const ps = Object.entries(params).sort().map(e => `${e[0]}=${e[1]}`).join('&');
+  if (['GET'].indexOf(config.method) >= 0) {
+    arr.push(ps);
+    arr.push('');
+  } else {
+    arr.push('');
+    arr.push(ps);
+  }
+  const str = `|${arr.join('|')}|`;
+  config.header['X-Signature'] = md5(str);
+  config.header['X-Timestamp'] = timestamp;  
+}
+
 const fetchByWechat = config => {
   if (!config.url) {
     return;
   }
-  config.url = `${url}${config.url}`;
   config.method = config.method || 'GET';
   config.data = config.data || {};
   config.data.delegateID = '2010002';
@@ -21,7 +43,6 @@ const fetchByWechat = config => {
   if (!config.header['content-type']) {
     config.header['content-type'] = 'application/x-www-form-urlencoded';
   }
-
   const success = config.success;
   const fail = config.fail;
   config.success = res => {
@@ -49,6 +70,9 @@ const fetchByWechat = config => {
     }
   }
   // console.log(config);
+  sign(config);
+  config.url = `${url}${config.url}`;
+  console.log(config);
   return app.sdk.request(config);
 };
 
@@ -80,7 +104,7 @@ const fetchAlipay = config => {
       fail({});
       return;
     }
-    const httpCode = res.data.HttpStatus;
+    const httpCode = res.data.HTTPStatus;
     if (httpCode > 299 || httpCode < 200) {
       if (res.data.errorCode === "network-0003") {
         app.setToken('');
@@ -98,9 +122,11 @@ const fetchAlipay = config => {
       fail(err);
     } else {
       success(res);
+      console.log(res);
     }
   }
   // console.log(config);
+  sign(config);
   return app.sdk.request(config);
 };
 

@@ -65,7 +65,10 @@ App({
         delegate: obj.aud,
       };
     } else {
-      this.gd.jwtInfo = null;
+      this.gd.jwtInfo = {
+        phone: null,
+        delegate: null,
+      };
     }
   },
   getUserInfo() {
@@ -107,7 +110,10 @@ App({
   // globalData
   gd: {
     userInfo: null,
-    jwtInfo: null,
+    jwtInfo: {
+      phone: null,
+      delegate: null,
+    },
     systemInfo: null,
     rate: null,
     token: null,
