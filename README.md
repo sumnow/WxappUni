@@ -8,5 +8,5 @@
 
 `ali`的canvas总是表现在最底层，`z-index`无法修改
 
-
+`ali`小程序在安卓系统上没有很多es6的方法，如`Object.keys`,`Object.entries`,`Array.prototype.includes`
 

@@ -21,13 +21,10 @@ module.exports = (app) => {
 		}, 1000);
 		app.sdk.redirectTo(config);      
     };
-    
-    if (app.isWechat) {
-      return;
-    }
 	
 	  app.sdk.login = (config) => {
 			app.sdk.getAuthCode({
+				scopes: 'auth_user',
 				success: (res) => {
 					config.success({code: res.authCode});
 				},
@@ -84,11 +81,94 @@ module.exports = (app) => {
 			setNavigationBar({
 				title: config.title,
 			})
-		}
+		};
 	
 		app.sdk.setNavigationBarTitle = (config) => {
 			setNavigationBar({
 				title: config.title,
 			})
-		}
+		};
+
+		app.sdk.showModal = (config) => {
+			app.sdk.confirm(config);
+		};
+
+
+	if (!Object.keys) {
+		Object.keys = (function() {
+			'use strict';
+			var hasOwnProperty = Object.prototype.hasOwnProperty,
+					hasDontEnumBug = !({ toString: null }).propertyIsEnumerable('toString'),
+					dontEnums = [
+						'toString',
+						'toLocaleString',
+						'valueOf',
+						'hasOwnProperty',
+						'isPrototypeOf',
+						'propertyIsEnumerable',
+						'constructor'
+					],
+					dontEnumsLength = dontEnums.length;
+	
+			return function(obj) {
+				if (typeof obj !== 'function' && (typeof obj !== 'object' || obj === null)) {
+					throw new TypeError('Object.keys called on non-object');
+				}
+	
+				var result = [], prop, i;
+	
+				for (prop in obj) {
+					if (hasOwnProperty.call(obj, prop)) {
+						result.push(prop);
+					}
+				}
+	
+				if (hasDontEnumBug) {
+					for (i = 0; i < dontEnumsLength; i++) {
+						if (hasOwnProperty.call(obj, dontEnums[i])) {
+							result.push(dontEnums[i]);
+						}
+					}
+				}
+				return result;
+			};
+		}());
+	}
+
+	if (!Object.entries)
+  Object.entries = function( obj ){
+    var ownProps = Object.keys( obj ),
+        i = ownProps.length,
+        resArray = new Array(i); // preallocate the Array
+    while (i--)
+      resArray[i] = [ownProps[i], obj[ownProps[i]]];
+    
+    return resArray;
+	};
+	
+	if (!Array.prototype.includes) {
+		Object.defineProperty(Array.prototype, 'includes', {
+			value: function(searchElement, fromIndex) {
+				if (this == null) {
+					throw new TypeError('"this" is null or not defined');
+				}
+	
+				var o = Object(this);
+				var len = o.length >>> 0;
+				if (len === 0) {
+					return false;
+				}
+				var n = fromIndex | 0;
+				var k = Math.max(n >= 0 ? n : len - Math.abs(n), 0);
+				while (k < len) {
+					if (o[k] === searchElement) {
+						return true;
+					}
+					k++;
+				}
+				return false;
+			}
+		});
+	}
+	
 };
